@@ -1,0 +1,23 @@
+{
+  "state": "The customer was charged twice and requests an immediate refund.",
+  "questions": {
+    "route": {
+      "type": "choice",
+      "instructions": "Which team should handle this ticket?",
+      "criteria": {
+        "billing": "Payments, invoicing, or refunds",
+        "account": "Account access or profile",
+        "technical": "Bugs or integrations"
+      }
+    },
+    "refund_requested": {
+      "type": "noul",
+      "instructions": "Does the customer request a refund?"
+    },
+    "urgency": {
+      "type": "score",
+      "instructions": "How urgently should this ticket be handled?",
+      "criteria": ["Normal queue", "Priority handling", "Immediate human handling"]
+    }
+  }
+}

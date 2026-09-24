@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "qwen35-jev-inference"
+version = "0.1.0"
+description = "Standalone local inference for Qwen3.5-0.8B-JEV"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "Apache-2.0"
+dependencies = [
+  "torch>=2.6",
+  "transformers==5.5.3",
+  "safetensors>=0.4",
+  "huggingface-hub>=0.25",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+[project.scripts]
+jev-predict = "jev_inference.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
